@@ -27,69 +27,10 @@
 		<c:set var="endPage" value="${endPage}"/>
 		<c:set var="realEndPage" value="${realEndPage}"/>
 		<c:set var="total" value="${total}"/>
+		<c:set var="year" value="<%=new java.util.Date()%>" />
+		<c:set var="year"><fmt:formatDate value="${year}" pattern="yyyy" /></c:set> 
 	
-	 
-		<!-- 돌봄유형 모달창 -->
-		  <div id="my_modal">
-           <iframe src="${pageContext.request.contextPath}/app/modal/careType.jsp" border="0" frameborder="0" allowTransparency="true" scrolling='no'
-            style="width:100; height:100; padding=0; display:yes; font-size:9pt;
-         	position: absolute;
-		    width: 110%;
-		    margin-left: -29px;
-		    height: 112%;
-		    margin-top: -40px;"
-		    class="modal"
-			>대체 내용</iframe>  
-            <a class="modal_close_btn"><img src="${pageContext.request.contextPath}/images/whiteX.png" style="width:20px;"></a>
-        </div>
-		
-		
 
-		
-			<!-- 상세검색 모달창 -->
-		  <div id="myModal2">
-           <iframe src="${pageContext.request.contextPath}/app/modal/searchDetail.jsp" border="0" frameborder="0" allowTransparency="true" 
-	           scrolling='no' style="width:100; height:100; padding=0; display:yes; font-size:9pt;
-			   position: absolute;
-			   width: 116%;
-			   margin-left: -44px;
-			   height: 104%;
-			   margin-top: -8px;
-			   "class="modal2">대체 내용</iframe>  
-            <a class="modalCloseBtn2"><img src="${pageContext.request.contextPath}/images/whiteX.png" style="width:20px;"></a>
-        </div>
-		
-		<!-- 돌봄지역을 선택해주세요 모달창 -->
-		  <div id="myModal3">
-         <div style="margin-top: 42px;">
-		    <select id="sido" class="area">
-		      <option value="">'시/도'를 선택해주세요</option>
-		    </select>
-		    <select id="sigugun" class="area">
-		      <option value="">'시/군/구'를 선택해주세요</option>
-		    </select>
-		    <select id="dong" class="area">
-		      <option value="">'동'을 선택해주세요</option>
-		    </select>
-		 
-		  </div>
-  
-            <a class="modalCloseBtn3"><img src="${pageContext.request.contextPath}/images/grayX.png" style="width:20px;"></a>
-        </div>
-		
-		
-			<!-- 시터가 시터꺼 하트눌렀을 때  모달창 -->
-		  <div id="myModal4">
-           <iframe src="modal4.jsp" class="modal4" style="
-		  	position: absolute;
-		    width: 116%;
-		    margin-left: -9px;
-		    height: 104%;
-		    margin-top: -11px;
-			">대체 내용</iframe>  
-            <a class="modalCloseBtn4"><img src="${pageContext.request.contextPath}/images/whiteX.png" style="width:20px;"></a>
-        </div>
-		
 		
 		
 <!-- Header -->
@@ -105,53 +46,70 @@
 				<div class="main">
 				
 				<br><br>
-			<h3 style="font-family: 'GmarketSansLight';"> 일자리 찾기</h3>
+			<h3 style="font-family: 'GmarketSansLight'; font-size: 31px;"> 일자리 찾기</h3>
 
-	<!--돌봄지역, 돌봄 유형  -->
-				<div class="locationFilter">
+				<!--돌봄지역-->
+		
+					<div class="locationFilter_1">
 					<div class="locationImg">
-						<img src="${pageContext.request.contextPath}/images/location.png" style="width: 100%;" >
+						<img src="${pageContext.request.contextPath}/images/location2.png" style="width: 100%; " class="media_img">
 					</div>
-					<span class="locationInput span mo1" style="margin-left:0px;
-					    font-size: 13px;
-					    cursor: pointer;
-					    color: #626c6e;
-					 " id="searchArea">
+					<span class="locationInput span openBtn3" id="searchArea">
 						돌봄지역을 선택해주세요.</span>
-				
-					
-				</div>
-				<div class="locationFilter">
-					<div class="locationImg baby">
-						<img src="${pageContext.request.contextPath}/images/baby.png" style="width: 100%;" >
 					</div>
-					<span class="locationInput mo1 span" style="  margin-left: 3px;
-				    font-size: 13px;
-				    cursor: pointer;
-				    color: #626c6e;
-				" id="careType">
-						돌봄유형 선택하기.</span>
-					
-				</div>
+				<div class="locationFilter_wrap">	
+					<!-- 돌봄유형 -->
+				 	<div class="locationFilter_2">
+						<div class="locationImg baby">
+							<img src="${pageContext.request.contextPath}/images/baby2.png" style="width: 100%; " class="media_img">
+						</div>
+						<span class="locationInput span openBtn2" id="careType">돌봄유형 선택하기.</span>
+					</div>
+	
+	
 	
 				<!-- 상세검색 -->
-				<div class="detailSearch" style="position:relative; ">
-					<img src="${pageContext.request.contextPath}/images/filter.png" class="filter">
-					<button class="detailSearchButton" id="searchDetail" style="cursor: pointer;
-					    margin-bottom: 14px;
-					"> &nbsp;&nbsp;&nbsp;&nbsp;상세검색</button>
+				<div class="detailSearch" >
+					<button class="openBtn" id="searchDetail" style="cursor: pointer;">
+					<img src="${pageContext.request.contextPath}/images/filter.png" class="filter" style=" margin-top: 4px;" >
+					
+					<span>상세검색</span></button>
+				</div> 
 
-				</div>
+		</div>
 
-	<button onclick="location.href='${pageContext.request.contextPath}/service/wirteMom.ser'">글쓰기</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%-- 	<button onclick="location.href='${pageContext.request.contextPath}/service/WriteMom.ser'">글쓰기</button> --%>
+	
 
 		<section class="userInfo">
+		<div class="userAll">
 			<c:choose>
 				<c:when test="${jobList != null and fn:length(jobList) > 0}">
 					<c:forEach var="job" items="${jobList}">
+				
+						
 								<!-- 유저정보 -->
-							<div class="userPf">
-								<img src="${pageContext.request.contextPath}/images/heart.png" class="heart">
+								<div class="userPf">
+								<%-- <img src="${pageContext.request.contextPath}/images/heart.png" class="heart"> --%>
 								
 								<div class="userImg">
 									<!-- 유저 사진 -->
@@ -160,7 +118,7 @@
 								</div>
 								<div class="userName">
 									<!-- 게시글 제목 -->
-									<h4 style="margin-bottom: 0;"><a href="${pageContext.request.contextPath}/app/serviceProfile/lookMomProfile2.jsp" style="border:none;">
+									<h4 style="margin-bottom: 0;"><a href="${pageContext.request.contextPath}/service/LookMomProfileOk.ser?userNum=${job.getUserNum()}" style="border:none;">
 									${job.getProfileDescription()}</a></h4>
 									<div class="mobileAd">
 										<!-- 주소 -->
@@ -197,7 +155,7 @@
 									
 										</div>
 										<!-- 희망시급, 협의가능여부 -->
-										희망시급 ${job.getProfileSalary()}원 / <span class="span" style="font-weight: bold;">협의가능</span></div>
+										희망시급 ${job.getProfileSalary()}원</div>
 										<hr style="margin: 7px 0px;width: 100%;">
 									
 										<!-- 돌봄가능날짜 -->
@@ -273,9 +231,262 @@
 					</c:forEach>
 				</c:when>
 			</c:choose>
+			</div>
+			
+			
+			   <!-- 상세검색 모달 --> 
+
+                <div class="modal hidden">
+                 <div class="bg"></div>
+                    <div class="modalBox"> 
+							<!-- main -->
+   
+						<div class="main2">
+				        <div class="header">
+				        <div	style="
+				           	background-color: #ffb61a9e;
+					    	width: 551px;
+					      	height: 83px;
+					   		line-height: 5;">
+					    <h3 style="color:white; margin-left: -30px; font-size:23px;padding-top: 25px; " class="media2">상세 검색</h3></div>
+				      <%--  onclick="location.href='${pageContext.request.contextPath}/service/MomDetailModalOk.ser'" --%>
+				        <input type="button" value="적용" class="apply" style="cursor: pointer; color: #ffb61a !important;" id="close" >
+				        </div>
+  
+         
+				        <div class="content media4">
+				        
+				            <h3 style="text-align: left;" class="font-size">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;아이 나이</h3>
+				            
+				            <span class="grade"><img src="${pageContext.request.contextPath}/images/신생아no.png" class="gradeImgSize media6"  id="newbornBaby"></span>
+				            <span class="grade"><img src="${pageContext.request.contextPath}/images/영아no.png"  class="gradeImgSize media6"  id="baby"></span>
+				            <span class="grade"><img src="${pageContext.request.contextPath}/images/유치원no.png" class="gradeImgSize media6"  id="kinder"></span>
+				            <span class="grade"><img src="${pageContext.request.contextPath}/images/초등학생no.png" class="gradeImgSize media6"   id="elementary"></span>
+				    		<div style="margin-top: -11px;">
+				            <span class="grade2  media7">&nbsp;&nbsp;&nbsp;신생아</span>
+				            <span class="grade2 media7">&nbsp;&nbsp;영아</span>
+				            <span class="grade2" >&nbsp;&nbsp;유치원</span>
+				            <span class="grade2 media7">초등학생</span>
+				            </div>
+				        </div>
+        
+				        <hr>
+				        <div class="content media8">
+				            <h3 style="text-align: left;" class="font-size">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;돌봄 요일</h3>
+				            <div style="     margin-bottom: 4px; margin-top: -14px;" class="media10">
+				                <img src="${pageContext.request.contextPath}/images/월.png"  class="days2 media11" 
+				                 id="monday">
+				                <img src="${pageContext.request.contextPath}/images/화.png" class="days2 media11" 
+				                 id="tuesday" >
+				                <img src="${pageContext.request.contextPath}/images/수.png" class="days2 media11" 
+				                id="wednesday">
+				                <img src="${pageContext.request.contextPath}/images/목.png" class="days2 media11" 
+				                id="thursday">
+				                <img src="${pageContext.request.contextPath}/images/금.png" class="days2 media11" 
+				                id="friday">
+				                <img src="${pageContext.request.contextPath}/images/토.png" class="days2 media11"  
+				                id="saturday">
+				                <img src="${pageContext.request.contextPath}/images/일.png" class="days2 media11"  
+				                id="sunday">
+				            </div>
+				        </div>
+				        
+				        <hr>
+					
+					        <div class="content media12">
+					            <h3 style="text-align: left;" class="font-size">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;돌봄 시간대</h3>
+					       
+					            <span class="timeIcon"><img src="${pageContext.request.contextPath}/images/아침1.png"  class="timeIcon media14" 
+					                id="morning"></span>
+					            <span class="timeIcon"><img src="${pageContext.request.contextPath}/images/오후1.png" class="timeIcon media14"
+					                id="lunch"></span>
+					            <span class="timeIcon"><img src="${pageContext.request.contextPath}/images/저녁1.png" class="timeIcon media14"
+					               id="dinner"></span>
+					                <div style="margin-bottom: 13px;    margin-top: -17px;" class="media16">
+									<span class="time media15">오전9시~오후12시</span>
+									<span class="time media15">오후12시~오후3시</span>
+									<span class="time media15">오후3시~오후6시</span>
+									</div>												
+					        </div>
+       
+					        <hr>
+					
+				<%-- 	        <div class="content media17">
+					            <h3 style="text-align: left;" class="font-size">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;원하는 시터 나이대</h3>
+					            
+					            <div class="time">
+					                <img src="${pageContext.request.contextPath}/images/20대1.jpg"  class="age media19"
+					                id="twenty"> 
+					                <img src="${pageContext.request.contextPath}/images/30대1.jpg" class="age media19"
+					                id="thirty"> 
+					                <img src="${pageContext.request.contextPath}/images/40대1.jpg" class="age media19"
+					                id="fourty"> 
+					                <img src="${pageContext.request.contextPath}/images/50대1.jpg" class="age media19"
+					                id="fifty">
+					                <img src="${pageContext.request.contextPath}/images/60대1.jpg"  class="age media19"
+					                id="sixty">
+					                
+					            </div>
+					        </div>
+					        
+					        <hr> --%>
+
+						        <div class="content media20">
+						            <h3 style="text-align: left;" class="font-size">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;원하는 활동</h3>
+						            
+						            <div class="time media22" style="margin-top: 15px height: 175px; ">
+						                <div style="margin-top: -16px !important;" >
+						                <img src="${pageContext.request.contextPath}/images/no실내놀이.png" class="activity media23"
+						                id="play">
+						                <img src="${pageContext.request.contextPath}/images/no등하원.png" class="activity media23"
+						                id="goingSchool" >
+						                <img src="${pageContext.request.contextPath}/images/no밥챙겨주기.png"class="activity media23"
+						                id="makeEat">
+						                <img src="${pageContext.request.contextPath}/images/no청소.png" class="activity media23" 
+						                id="cleaning">
+						                <img src="${pageContext.request.contextPath}/images/no학습지도.png" class="activity media23"
+						                id="study">
+						                <div class="media25">
+						                    <span style="margin:37.3px;" class="media24">실내놀이</span>
+						                    <span style="margin: 9px;"class="media24">등하원</span>
+						                    <span style="margin: 33px;"class="media24">밥 챙겨주기</span>
+						                    <span style="margin: 16px;"class="media24">청소</span>
+						                    <span style="margin: 34px;"class="media24">학습 지도</span>
+						
+						                </div>
+						                </div>
+						            </div>
+						        </div>
+						        
+						        
+						        <!------------------------------------------------------------------------------  -->
+		                    </div>
+	                    </div>
+					</div>
+                
+		
+		
+		   <!-- 돌봄유형 선택 모달 --> 
+
+                <div class="modal2 hidden">
+                    <div class="bg2"></div>
+                    <div class="modalBox2">
+                     <!-- 돌봄유형 모달창 main -->
+    <div class="main3">
+   
+        <div style=" background-color: #ffb61a9e; width: 477px;height: 86px; text-align: center;">
+        <h2 style="color:white; line-height: 3;font-size: 29px;">&nbsp;돌봄유형 선택</h2></div>
+    	<div style=" text-align: center;width: 477px; height: 683px;" >
+        <br>
+        <h3 style="margin: 1px; font-family: GmarketSansMedium;" >어떤 돌봄이 필요하세요?</h3>
+        <p style="margin: 0; color: gray;" class="media21">돌봄 유형을 선택하시면, 맞춤 시터를 보여드려요</p>
+
+        <div>
+            <div class="child">
+                2~10세 정기 돌봄
+            </div>
+
+            <div>
+                <img src="${pageContext.request.contextPath}/images/등하원.png" style="width: 50px; margin: 0 70px; cursor:pointer;" id="goToSchool" >
+                <img src="${pageContext.request.contextPath}/images/학습지도.png" style="width: 50px; margin: 0 70px; cursor:pointer;" id="teach">
+            </div>
+            <div style="margin: 0 auto; width: 500px; height: 45px; margin-left: -7px; margin-top: -15px;" >
+                <div class="text">
+                   주 5일 등하원 
+                    <p class="p2">기관 전/후 등하원 및 돌봄</p>
+                </div>
+                <div class="text" style="margin-left: 60px;">
+                    놀이/학습시터
+                    <p class="p2">주 1~4일 또는 짧은시간</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div>
+            <div class="child" style="margin-top:20px;">
+                신생아/영아 정기돌봄
+            </div>
+            <div>
+                <img src="${pageContext.request.contextPath}/images/풀타임.png" style="width: 55px; margin: 0 70px; cursor:pointer;" id="fullTime">
+                <img src="${pageContext.request.contextPath}/images/보조.png" style="width: 55px; margin: 0 70px; cursor:pointer;"  id="assistance">
+            </div>
+            <div style="margin: 0 auto; width: 500px; height: 45px; margin-left: 3px; margin-top: -14px !important;" >
+                <div class="text" style="margin-left: 91px;">
+                  풀타임
+                    <p class="p2">평균8시간 이상</p>
+                </div>
+                <div class="text" style="margin-left: 139px;">
+                    보조
+                    <p class="p2">짧은시간</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="media15">
+            <div class="child" style="margin-top:20px;">
+                긴급/단기 돌봄
+            </div>
+            <div>
+                <img src="${pageContext.request.contextPath}/images/긴급.png" style="width: 50px; cursor:pointer;" id="emergency">
+
+            </div>
+            <div class="main" style="font-weight: bold;">
+                긴급/단기
+                <p class="p2">하루 또는 며칠만 급하게 필요할 때</p>
+              </div>
+        	</div>
+
+            <button class="button" id="fullType" 
+            onclick="location.href='/mommy_workspace/service/SearchJobOk.ser?careType=6'";
+            >모든 돌봄유형 보기</button>
+            
+			</div>
+
+	   				 </div>
+                    </div>
+                </div>
+		
+		
+		<!-- 돌봄지역 선택 모달 -->
+		
+		
+		 <div class="modal3 hidden">
+                    <div class="bg3"></div>
+                    <div class="modalBox3">
+                    	<div class="location_title">
+                      		<h2 style="color: white; line-height: 3; font-size: 29px;">&nbsp;돌봄지역 선택</h2>
+          				</div>
+                      <div class="region_select">
+						    <select id="sido" name="sido" class="area" style="background-color: white; cursor:pointer;">
+						      <option value="" >'시/도'를 선택해주세요</option>
+						    </select>
+						    <select id="sigugun" name="sigugun" class="area" style="background-color: white; cursor:pointer;">
+						      <option value="" >'시/군/구'를 선택해주세요</option>
+						    </select>
+						    <select id="dong" name="dong" class="area" style="background-color: white; cursor:pointer;">
+						      <option value="">'동'을 선택해주세요</option>
+						    </select>
+						     <div>
+					               <input class="region_btn" type="button" id="areaButton" value="확인" style="    color: #ffb61a !important;
+										    outline: 0 !important;
+										    border: none !important;
+										    padding: 0 !important;
+										    line-height: 0;
+										    box-shadow: none;">
+					            </div>
+						 </div>
+                   </div>
+               </div>
+		
 		
 				
-										<!-- 페이징 처리 -->
+					
+								<%-- 		<!-- 페이징 처리 -->
+							
+											
 										<table style="font-size:1.3rem">
 											<tr align="center" valign="middle">
 												
@@ -301,8 +512,9 @@
 												</td>
 											</tr>
 										</table>
-		
-		
+				
+				
+		 --%>
 	
 	</section>	
 	
@@ -322,6 +534,7 @@
 	</body>
          
 		<!-- Scripts -->
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/jquery.scrolly.min.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/browser.min.js"></script>
@@ -329,6 +542,10 @@
 			<script src="${pageContext.request.contextPath}/assets/js/util.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/searchJob.js"></script>
+	<script type="text/javascript" >
+var contextPath = "${pageContext.request.contextPath}";
+
+</script>
 	
 	
 </html>
