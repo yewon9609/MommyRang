@@ -14,6 +14,8 @@ const body = document.querySelector('body');
     function close2(){
     	document.querySelector(".modal2").classList.add("hidden");
     }
+    
+    
     function open3(){
     	document.querySelector(".modal3").classList.remove("hidden");
     }
@@ -33,6 +35,7 @@ const body = document.querySelector('body');
     document.querySelector(".bg3").addEventListener("click", close3);
 
     
+    console.log("찍힘");
  
 
 	
@@ -49,6 +52,10 @@ const body = document.querySelector('body');
 			}
 			
 		});
+		
+		
+	    console.log("찍힘");
+		
 		
 /*		window.addEventListener( 'message', (e) => {
 		    // 전달 된 데이터 
@@ -225,7 +232,7 @@ const body = document.querySelector('body');
 					}else{$study.attr('src','../images/학습지도.png');
 					$study.addClass('on');}
 		    })
-		   
+	    console.log("찍힘");	   
 
 		   
     var newbornBaby=0;
@@ -253,7 +260,7 @@ const body = document.querySelector('body');
     var cleaning = 0;
     var study = 0;
     var check=0;
-    
+    console.log("찍힘");  
     
     $('#close').on("click",function(){
     	careType=false;
@@ -343,7 +350,7 @@ const body = document.querySelector('body');
 
     });
 
-    
+    console.log("찍힘");
    
     
 //	돌봄유형 모달창--------------------------------------------------------------------------
@@ -355,10 +362,13 @@ const body = document.querySelector('body');
 		const $fullType=$('#fullType');
 		var careType=false;
 		var careNum=0;
-		
+	    console.log("찍힘");	
 		$goToSchool.on("click",function(){
 			careType=true;
 			careNum=1;
+			
+			getList1();
+			
 				// 리스트 초기화
 		    	$(".userAll").empty();
 		    	
@@ -366,7 +376,6 @@ const body = document.querySelector('body');
 		    	page = 1;
 		    	isLast = false;
 
-		    	getList1();
 		    	// 모달 팝업 닫기
 		    	document.querySelector(".modal2").classList.add("hidden");
 //		    	close();
@@ -376,7 +385,7 @@ const body = document.querySelector('body');
 		$teach.on("click",function(){
 			careType=true;
 			careNum=2;
-
+	
 				// 리스트 초기화
 		    	$(".userAll").empty();
 		    	
@@ -395,7 +404,6 @@ const body = document.querySelector('body');
 			careNum=3;
 			
 			
-			
 				// 리스트 초기화
 		    	$(".userAll").empty();
 		    	
@@ -412,7 +420,6 @@ const body = document.querySelector('body');
 		$assistance.on("click",function(){
 			careType=true;
 			careNum=4;
-	
 				// 리스트 초기화
 		    	$(".userAll").empty();
 		    	
@@ -420,7 +427,7 @@ const body = document.querySelector('body');
 		    	page = 1;
 		    	isLast = false;
 
-				getList4();
+		    	getList4();
 		    	// 모달 팝업 닫기
 		    	document.querySelector(".modal2").classList.add("hidden");
 //		    	close();
@@ -429,7 +436,6 @@ const body = document.querySelector('body');
 		$emergency.on("click",function(){
 			careType=true;
 			careNum=5;
-
 				// 리스트 초기화
 		    	$(".userAll").empty();
 		    	
@@ -437,7 +443,7 @@ const body = document.querySelector('body');
 		    	page = 1;
 		    	isLast = false;
 
-				getList5();
+		    	getList5();
 		    	// 모달 팝업 닫기
 		    	document.querySelector(".modal2").classList.add("hidden");
 //		    	close();
@@ -447,14 +453,14 @@ const body = document.querySelector('body');
 			careType=true;
 			careNum=6;
 		
-
 				// 리스트 초기화
 		    	$(".userAll").empty();
 		    	
 		    	// 필터 초기화
 		    	page = 1;
 		    	isLast = false;
-				getList6();
+
+		    	getList6();
 		    	// 모달 팝업 닫기
 		    	document.querySelector(".modal2").classList.add("hidden");
 //		    	close();
@@ -465,6 +471,8 @@ const body = document.querySelector('body');
 		$('#areaButton').on("click",function(){
 			areaModal=true;
 			careType=true;
+//			careNum=7;
+		
 		
 				// 리스트 초기화
 		    	$(".userAll").empty();
@@ -474,8 +482,8 @@ const body = document.querySelector('body');
 		    	isLast = false;
 		    	
 		    	getList7();
-		    	// 모달 팝업 닫기
 		    	document.querySelector(".modal3").classList.add("hidden");
+		    	// 모달 팝업 닫기
 //		    	close();
 		})
 
@@ -548,6 +556,7 @@ const body = document.querySelector('body');
 	var isLast = false; // 마지막 페이지 여부
 	
 	$(window).scroll(function(){
+	    console.log("찍힘");
 		console.log("스크롤이벤트들어옴");
 		var scrT = $(window).scrollTop();
 //		console.log(scrT + "스크롤값");
@@ -583,6 +592,7 @@ const body = document.querySelector('body');
 	
 	// 리스트 조회
 	 function getList() {
+		
 		 // 페이지 파라미터 (필터링 값, 페이지 번호)
 		 const data = {
 				 "page": page,
@@ -611,7 +621,7 @@ const body = document.querySelector('body');
 	     // 컨트롤러 호출
 		 $.ajax({
 			 type: "GET",
-			 url: "/mommy_workspace/service/SearchMomOk2.ser",
+			 url: "/mommy_workspace/service/SearchJobOk2.ser",
 			 data: data,
 	         contentType: "application/json;charset=utf-8", // 보내는 타입
 			 dataType: "json", // 받는 타입
@@ -629,112 +639,117 @@ const body = document.querySelector('body');
 	 }
 	
 	 // 페이지 리스트 추가
-	function addList(result) {
-		// result 개수만큼 반복
+		function addList(result) {
+			console.log("addList실행");
+			// result 개수만큼 반복
+			for (var i = 0; i < result.length; i++) {
+				var userProfile="<div class='userPf'>";
+				userProfile+="<div class='userImg  medi2'>";
+				userProfile+="	<!-- 유저 사진 -->";
+				if(result[i].ProfilePicture=="" || result[i].ProfilePicture==null ){
+					console.log("픽쳐 널일때 들어옴")
+					userProfile+="<img src='../images/아이.png'class='userImgDetail'>";
+				}else{
+					console.log("픽쳐 널아님")
+					userProfile+="<img src='/profileData/"+result[i].ProfilePicture+"'class='userImgDetail medi3'>";
+				}
+				userProfile+="</div>";
+				userProfile+="<div class='userName'>";
+				userProfile+="	<!-- 게시글 제목 -->";
+				userProfile+="	<h4 style='margin-bottom: 0;'><a href='"+contextPath+"/service/LookMomProfileOk.ser?userNum="+result[i].userNum+"&profile="+result[i].profileNum+"' style='border:none;'>";
+				userProfile+=""+result[i].ProfileDescription+"</a></h4>";
+				userProfile+="	<div class='mobileAd'>";
+				userProfile+="		<!-- 주소 -->";
+				userProfile+="		<span class='span medi6'>"+result[i].LocationSido+result[i].LocationSigun+" </span>&nbsp;";
+				userProfile+="		<div class='line medi7'></div>&nbsp;&nbsp;";
+				userProfile+="		<!-- 아이정보 -->";
+					if(result[i].BabyNewborn==1){
+						userProfile+="<span class='span medi6'>신생아</span>&nbsp;";
+					}
+					else if(result[i].BabyChild==1){
+						userProfile+="<span class='span medi6'>유아</span>&nbsp;";
+					}
+					else if(result[i].BabyKinder==1){
+						userProfile+="<span class='span medi6'>유치원생</span>&nbsp;";
+					}
+					else if(result[i].BabyElementary==1){
+						userProfile+="<span class='span medi6'>초등학생</span>&nbsp;";
+					}else{
+						userProfile+="<span class='span medi6'>정보 없음</span>&nbsp;";
+						
+					}
 		
-		for (var i = 0; i < result.length; i++) {
-			var num=0;
-			var userProfile="<div class='userPf'>";
-		
-			userProfile+="<div class='userImg'>";
-			if(result[i].ProfilePicture=="" || result[i].ProfilePicture==null ){
-				console.log("픽쳐 널일때 들어옴")
-				userProfile+="<img src='../images/기본 이미지.png'class='userImgDetail medi2'>";
-			}else{
-				console.log("픽쳐 널아님")
-				userProfile+="<img src='/profileData/"+result[i].ProfilePicture+"'class='userImgDetail  medi2'>";
-			}
-			userProfile+="<div>";
-			userProfile+="</div>";
-			userProfile+="<div class='certify'>";
-			userProfile+="<p class='p'>확인된 인증 <span class='span' style='color: rgb(247, 87, 87); font-weight: bold;'>";
-			
-			userProfile+=result[i].CheckMedi+result[i].CheckCitizen+result[i].CheckMom+result[i].CheckTeacher+result[i].CheckUniversity+"</span>개</p>";
-			if(result[i].CheckMedi==1){
-				
-				userProfile+="<input type='button' value='건강인증' class='certifyList medi5' style='color:white !important' >";
-			}
-			if(result[i].CheckCitizen==1){
-				
-				userProfile+="<input type='button' value='본인인증' class='certifyList medi5' style='color:white !important' >";
-			}
-			if(result[i].CheckMom==1){
-				
-				userProfile+="<input type='button' value='부모님인증' class='certifyList medi5' style='color:white !important' >";
-			}
-			if(result[i].CheckTeacher==1){
-				
-				userProfile+="<input type='button' value='선생님인증' class='certifyList medi5' style='color:white !important' >";
-			}
-			if(result[i].CheckUniversity==1){
-				
-				userProfile+="<input type='button' value='학력인증' class='certifyList medi5' style='color:white !important' >";
-			}
-			
-			userProfile+="</div>";
-			userProfile+="</div>";
-			userProfile+="<div class='userName'>";
-			userProfile+="<h4 style='margin-bottom: 4px;' class='h4'><a href='"+contextPath+"/service/LookSitterProfileOk.ser?userNum="+result[i].userNum+"&profile="+result[i].profileNum+"' style='border:none;'>";                                                  
-			userProfile+=result[i].ProfileDescription+"</a></h4>";
-			userProfile+="<div class='infoDetail medi7'>"+result[i].LocationSido+" "+result[i].LocationSigun+"</div>&nbsp;";
-			userProfile+="<div class='infoDetail medi7'>"+result[i].age+"세</div>";
-			userProfile+="&nbsp;&nbsp;<div class='infoDetail medi7 medi13'>희망시급 "+result[i].getProfileSalary+"원</div>";
-			
-			userProfile+="<div class='day' style='margin-top: 7px; margin-left: -1px;'>";
-			userProfile+="<div class='days medi9' style='margin-left: -3.5px;' class='medi10'>";				
-				if(result[i].mon==1){
-					userProfile+="<img src='../images/월1.png' style='width: 35px;'  class='medi10'>";
-				}else{
-					userProfile+="	<img src='../images/월.png' style='width: 35px;' class='medi10'>";
-				}
-				if(result[i].tue==1){
-					userProfile+="<img src='../images/화1.png' style='width: 35px;' class='medi10'>";
-				}else{
-					userProfile+="	<img src='../images/화.png' style='width: 35px;'  class='medi10'>";
-				}
-				if(result[i].wed==1){
-					userProfile+="<img src='../images/수1.png' style='width: 35px;'  class='medi10'>";
-				}else{
-					userProfile+="	<img src='../images/수.png' style='width: 35px;' class='medi10'>";
-				}
-				if(result[i].thu==1){
-					userProfile+="<img src='../images/목1.png' style='width: 35px;'  class='medi10'>";
-				}else{
-					userProfile+="	<img src='../images/목.png' style='width: 35px;' class='medi10'>";
-				}
-				if(result[i].fri==1){
-					userProfile+="<img src='../images/금1.png' style='width: 35px;'  class='medi10'>";
-				}else{
-					userProfile+="	<img src='../images/금.png' style='width: 35px;' class='medi10'>";
-				}
-				if(result[i].sat==1){
-					userProfile+="<img src='../images/토1.png' style='width: 35px;'  class='medi10'>";
-				}else{
-					userProfile+="	<img src='../images/토.png' style='width: 35px;' class='medi10'>";
-				}
-				if(result[i].sun==1){
-					userProfile+="<img src='../images/일1.png' style='width: 35px;'  class='medi10'>";
-				}else{
-					userProfile+="	<img src='../images/일.png' style='width: 35px;' class='medi10'>";
-				}
+				userProfile+="		<div class='line medi14'></div>";
+				userProfile+="		<!-- 시작날짜 -->";
+				userProfile+="		<span class='span medi15'>&nbsp;&nbsp;&nbsp;"+result[i].periodStartDate+"시작</span>";
+				userProfile+="		&nbsp;&nbsp;";
+				userProfile+="</div>";
+				userProfile+="	<div class='fontSize'>";
+				userProfile+="		<div class='money'>";
+				userProfile+="		<img src='../images/money.png' style='width:100%;'>";
+				userProfile+="		</div>";
+				userProfile+="		<!-- 희망시급, 협의가능여부 -->";
+				userProfile+="		희망시급 "+result[i].getProfileSalary+"원</div>";
+				userProfile+="		<hr style='margin: 7px 0px;width: 100%;' class='medi16'>";
+				userProfile+="		<!-- 돌봄가능날짜 -->";
+				userProfile+="		<div class='day'>";
+				userProfile+="		<div class='days'>";
+					if(result[i].mon==1){
+						userProfile+="<img src='../images/월1.png' style='width: 35px;'  class='medi12'>";
+					}else{
+						userProfile+="	<img src='../images/월.png' style='width: 35px;'  class='medi12'>";
+					}
+					if(result[i].tue==1){
+						userProfile+="<img src='../images/화1.png' style='width: 35px;'  class='medi12'>";
+					}else{
+						userProfile+="	<img src='../images/화.png' style='width: 35px;'  class='medi12'>";
+					}
+					if(result[i].wed==1){
+						userProfile+="<img src='../images/수1.png' style='width: 35px;'  class='medi12'>";
+					}else{
+						userProfile+="	<img src='../images/수.png' style='width: 35px;' class='medi12'>";
+					}
+					if(result[i].thu==1){
+						userProfile+="<img src='../images/목1.png' style='width: 35px;'  class='medi12'>";
+					}else{
+						userProfile+="	<img src='../images/목.png' style='width: 35px;' class='medi12'>";
+					}
+					if(result[i].fri==1){
+						userProfile+="<img src='../images/금1.png' style='width: 35px;'  class='medi12'>";
+					}else{
+						userProfile+="	<img src='../images/금.png' style='width: 35px;' class='medi12'>";
+					}
+					if(result[i].sat==1){
+						userProfile+="<img src='../images/토1.png' style='width: 35px;'  class='medi12'>";
+					}else{
+						userProfile+="	<img src='../images/토.png' style='width: 35px;' class='medi12'>";
+					}
+					if(result[i].sun==1){
+						userProfile+="<img src='../images/일1.png' style='width: 35px;'  class='medi12'>";
+					}else{
+						userProfile+="	<img src='../images/일.png' style='width: 35px;' class='medi12'>";
+					}
 
-			userProfile+="</div>";
-			userProfile+="</div>";
-			userProfile+="</div>";
-			userProfile+="</div>";
-
-			$(".userAll").append(userProfile); // userAll에 div 추가
+				userProfile+="		</div>";
+				userProfile+="	</div>";
+				userProfile+="</div>";	
+				userProfile+="</div>";	
+				
+				$(".userAll").append(userProfile); 
 		}
-	}
-	
-    
+		}
+	    
+
+					
+
 
 				
 				
 	function getList1(){
+		
 		$.ajax({
 		 type: "GET",
-		 url: "/mommy_workspace/service/SearchMomOk2.ser",
+		 url: "/mommy_workspace/service/SearchJobOk2.ser",
 		 data: {"careType":1, "page":page},
         contentType: "application/json;charset=utf-8",
 		 dataType: "json", // 받는 타입
@@ -742,7 +757,6 @@ const body = document.querySelector('body');
 			 console.log(result);
 			 if (result.length > 0) { 
 				 addList(result); 
-				 
 			 } else {
 				 isLast = true;
 			 }
@@ -756,9 +770,10 @@ const body = document.querySelector('body');
 
 
 function getList2(){
+
 	$.ajax({
 		 type: "GET",
-		 url: "/mommy_workspace/service/SearchMomOk2.ser",
+		 url: "/mommy_workspace/service/SearchJobOk2.ser",
 		 data: {"careType":2, "page":page},
         contentType: "application/json;charset=utf-8",
 		 dataType: "json", // 받는 타입
@@ -766,7 +781,6 @@ function getList2(){
 			 console.log(result);
 			 if (result.length > 0) { 
 				 addList(result); 
-				 
 			 } else {
 				 isLast = true;
 			 }
@@ -781,9 +795,10 @@ function getList2(){
 
 
 function getList3(){
+	
 	$.ajax({
 		 type: "GET",
-		 url: "/mommy_workspace/service/SearchMomOk2.ser",
+		 url: "/mommy_workspace/service/SearchJobOk2.ser",
 		 data: {"careType":3,"page":page},
         contentType: "application/json;charset=utf-8",
 		 dataType: "json", // 받는 타입
@@ -791,7 +806,6 @@ function getList3(){
 			 console.log(result);
 			 if (result.length > 0) { 
 				 addList(result); 
-				 
 			 } else {
 				 isLast = true;
 			 }
@@ -804,9 +818,10 @@ function getList3(){
 
 
 function getList4(){
+	
 	$.ajax({
 		 type: "GET",
-		 url: "/mommy_workspace/service/SearchMomOk2.ser",
+		 url: "/mommy_workspace/service/SearchJobOk2.ser",
 		 data: {"careType":4,"page":page},
         contentType: "application/json;charset=utf-8",
 		 dataType: "json", // 받는 타입
@@ -814,7 +829,6 @@ function getList4(){
 			 console.log(result);
 			 if (result.length > 0) { 
 				 addList(result); 
-				 
 			 } else {
 				 isLast = true;
 			 }
@@ -827,9 +841,10 @@ function getList4(){
 
 
 function getList5(){
+
 	$.ajax({
 		 type: "GET",
-		 url: "/mommy_workspace/service/SearchMomOk2.ser",
+		 url: "/mommy_workspace/service/SearchJobOk2.ser",
 		 data: {"careType":5,"page":page},
         contentType: "application/json;charset=utf-8",
 		 dataType: "json", // 받는 타입
@@ -838,7 +853,6 @@ function getList5(){
 			 
 			 if (result.length > 0) { 
 				 addList(result); 
-				 
 			 } else {
 				 isLast = true;
 			 }
@@ -851,9 +865,10 @@ function getList5(){
 
 
 function getList6(){ 
+
 	$.ajax({
 		 type: "GET",
-		 url: "/mommy_workspace/service/SearchMomOk2.ser",
+		 url: "/mommy_workspace/service/SearchJobOk2.ser",
 		 data: {"careType":6,"page":page},
         contentType: "application/json;charset=utf-8",
 		 dataType: "json", // 받는 타입
@@ -861,7 +876,6 @@ function getList6(){
 			 console.log(result);
 			 if (result.length > 0) { 
 				 addList(result); 
-				 
 			 } else {
 				 isLast = true;
 			 }
@@ -874,13 +888,14 @@ function getList6(){
 	
 
 function getList7(){ 
+	
 	var locationSido=$("#sido option:selected").text();
 	var locationSigun=$("#sigugun option:selected").text();
 	var locationDong=$("#dong option:selected").text();
 
 	$.ajax({
 	 type: "GET",
-	 url: "/mommy_workspace/service/SearchMomOk2.ser",
+	 url: "/mommy_workspace/service/SearchJobOk2.ser",
 	 data: {"locationSido":locationSido, "locationSigun":locationSigun, "locationDong":locationDong,"page":page},
      contentType: "application/json;charset=utf-8",
 	 dataType: "json", // 받는 타입
@@ -888,7 +903,6 @@ function getList7(){
 		 console.log(result);
 		 if (result.length > 0) { 
 			 addList(result); 
-			 
 		 } else {
 			 isLast = true;
 		 }
