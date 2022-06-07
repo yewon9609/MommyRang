@@ -4,7 +4,7 @@
 -부모와 베이비시터 매칭 서비스 구현
 
 ## 💛프로젝트에서 사용한 기술
-- JAVA , JavaScript, jQuery, HTML , CSS ,JSTL
+- JAVA , JavaScript, jQuery, HTML , CSS ,JSTL, AJAX, MYSQL, KAKAOAPI, MYBATIS
 
 ## 💛프로젝트에서 맡은 역할 
 - 서비스 기획부터 전반적인 페이지 프론트앤드 업무수행
