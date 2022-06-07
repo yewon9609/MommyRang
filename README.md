@@ -15,10 +15,8 @@
 - 상세보기 페이지 카카오 지도 API 기능 개발     
 - 페이지 미디어쿼리(80%) 업무 수행  
 
+## 💛마미랑 DB 엔티티관계도
 
-
-
-
-
+![MOMMYRANG](https://user-images.githubusercontent.com/99070762/172318063-76135102-fecb-49d5-8f19-335285ac9d20.jpg)
 
 
