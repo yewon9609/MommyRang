@@ -6,7 +6,8 @@
 ## 💛프로젝트에서 사용한 기술
 - JAVA , JavaScript, jQuery, HTML , CSS ,JSTL
 
-
+## 💛프로젝트에서 맡은 역할 
+-
 
 
 
